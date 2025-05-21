@@ -18,13 +18,27 @@ header.header {
   justify-content: space-between;
   box-shadow: 0 2px 4px 0 #0000000d;
 
-  &img {
+  & img {
     width: 40px;
   }
 }
 
-nav.nav {
-  a {
+.nav {
+  &__list {
+    list-style: none;
+    display: flex;
+    padding: 0;
+  }
+
+  &__list-item {
+    margin-left: 20px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  &__link {
     height: 60px;
     line-height: 60px;
     font-size: 12px;
@@ -33,11 +47,11 @@ nav.nav {
     color: #060b35;
     text-decoration: none;
     display: inline-block;
-    margin-left: 20px;
     position: relative;
+    transition: color 0.3s ease;  // Transição suave para mudança de cor
 
     &:hover {
-      color: var(--blue);
+      color: var(--blue); // Alteração de cor no hover
     }
 
     &::after {
@@ -49,22 +63,19 @@ nav.nav {
       bottom: 0;
       left: 0;
       border-radius: 4px;
-      display: none;
+      display: none;  
+    }
+
+    &.is-active {
+      color: var(--blue); 
     }
 
     &.is-active::after {
       display: block;
     }
   }
-
-  &.is-active {
-    color: var(--blue);
-  }
-
-  &li:first-child a {
-    margin-left: 0;
-  }
 }
+
 
 ul {
   list-style: none;
